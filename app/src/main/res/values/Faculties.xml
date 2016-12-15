@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Faculties">
+        <item>Wydział</item>
+        <item>Wydział Architektóry</item>
+        <item>Wydział Budownictwa</item>
+        <item>Wydział Chemiczny</item>
+        <item>Wydział Elektroniki</item>
+        <item>Wydział Elektryczny</item>
+        <item>Wydział Geoinżynierii, Górnictwa i Geologii</item>
+        <item>Wydział Inżynierii Środowiska</item>
+        <item>Wydział Informatyki i Zarządzania</item>
+        <item>Wydział Mechaniczno-Energetyczny</item>
+        <item>Wydział Energetyczny</item>
+        <item>Wydział Podstawowych Problemów Techniki</item>
+        <item>Wydział Elektorniki Mikrosystemów i Fotoniki</item>
+        <item>Wydział Matematyki</item>
+    </string-array>
+</resources>
+
+
+
+
+
+

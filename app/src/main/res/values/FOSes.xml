@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="FOSes">
+        <item>Kierunek</item>
+        <item>Matematyka Stosowana</item>
+        <item>Architektóra</item>
+        <item>Automatyka i Robotyka</item>
+        <item>Inżynieria Biomedyczna</item>
+        <item>Biotechnologia</item>
+        <item>Inżynieria Chemiczna i Procesowa</item>
+        <item>Technologia Chemiczna</item>
+        <item>Chemia</item>
+        <item>Inżynieria Lądowa</item>
+        <item>Informatyka</item>
+        <item>Automatyka i Robotyka</item>
+        <item>Elektronika i Telekomunikacja</item>
+        <item>Elektronika</item>
+        <item>Inżynieria Środowiska</item>
+        <item>Ochrona Środowiska</item>
+        <item>Geodezja i Kartografia</item>
+        <item>Zarządzanie</item>
+        <item>Zarządzanie i Inżynieria Produkcji</item>
+        <item>Inżynieria Materiałowa</item>
+        <item>Matematyka</item>
+        <item>Inżynieria Mechaniczna i Budowanie Maszyn</item>
+        <item>Mechatronika</item>
+        <item>Górnictwo i Geologia</item>
+        <item>Optyka</item>
+        <item>Power Engineering</item>
+        <item>Inżynieria Kwantowa</item>
+        <item>Gospodarka Przestrzenna</item>
+        <item>Inżynieria Systemów</item>
+        <item>Fizyka Techniczna</item>
+        <item>Telekomunikacja</item>
+        <item>Transport</item>
+        <item>Chemia i Analityka Przemysłowa</item>
+        <item>Teleinformatyka</item>
+        <item>Mechanika i Budowa Maszyn</item>
+    </string-array>
+</resources>
+
+
+
+
+
+
+
