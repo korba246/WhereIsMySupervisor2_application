@@ -129,7 +129,7 @@ public class LoginActivity extends AppCompatActivity {
             focusView = Email;
             cancel = true;
         } else if (!isEmailValid(email)) {
-            Email.setError("Musisz użyć adresu studenckiego PWR");
+            Email.setError("Musisz użyć adresu PWR");
             focusView = Email;
             cancel = true;
         }
