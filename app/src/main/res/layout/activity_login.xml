@@ -54,7 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.99"
-                app:srcCompat="@drawable/log" />
+                app:srcCompat="@drawable/logo" />
 
             <LinearLayout
                 android:id="@+id/loginfield"

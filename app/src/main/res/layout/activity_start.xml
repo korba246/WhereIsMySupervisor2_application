@@ -26,9 +26,8 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.77"
-            app:srcCompat="@drawable/log" />
+            android:layout_height="326dp"
+            app:srcCompat="@drawable/logo" />
 
         <LinearLayout
             android:layout_width="match_parent"

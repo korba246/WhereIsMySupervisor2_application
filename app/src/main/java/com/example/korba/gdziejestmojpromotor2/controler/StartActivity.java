@@ -1,23 +1,40 @@
 package com.example.korba.gdziejestmojpromotor2.controler;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.AsyncTask;
+import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
-
 import com.example.korba.gdziejestmojpromotor2.R;
 import com.example.korba.gdziejestmojpromotor2.model.RegisterBody;
 import com.example.korba.gdziejestmojpromotor2.model.ResponseBody;
 import com.example.korba.gdziejestmojpromotor2.service.DatabaseHandler;
 import com.example.korba.gdziejestmojpromotor2.service.UserService;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.model.LatLng;
 
-public class StartActivity extends AppCompatActivity {
+public class StartActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
     private UpdateUserTask task = null;
     private DatabaseHandler db = new DatabaseHandler(this);
+    private GoogleApiClient mGoogleApiClient;
+    private LocationManager locationManager;
+    private LocationRequest mLocationRequest;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,13 +42,21 @@ public class StartActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
         getSupportActionBar().setIcon(R.drawable.home);
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
+        if (mGoogleApiClient == null) {
+            mGoogleApiClient = new GoogleApiClient.Builder(this)
+                    .addConnectionCallbacks(this)
+                    .addOnConnectionFailedListener(this)
+                    .addApi(LocationServices.API)
+                    .build();
+        }
 
         ImageButton Help = (ImageButton) findViewById(R.id.help);
         Help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(StartActivity.this,HelpActivity.class);
+                Intent intent = new Intent(StartActivity.this,MapsActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -63,6 +88,17 @@ public class StartActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult result) {
+        Toast.makeText(getApplicationContext() , "Problemy z połączeniem GPS" , Toast.LENGTH_LONG).show();
+    }
+    @Override
+    public void onLocationChanged(Location location) {
+        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+        System.out.print("SSSSSSSSSSSDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD");
+        Toast.makeText(StartActivity.this, "localization", Toast.LENGTH_LONG).show();
+    }
 /*
     @Override
     public void onStop(){
@@ -70,6 +106,28 @@ public class StartActivity extends AppCompatActivity {
         LogoutUser(1);
     }*/
 
+    @Override
+    public void onConnected(@Nullable Bundle bundle) {
+        mLocationRequest = new LocationRequest();
+        mLocationRequest.setInterval(1000);
+        mLocationRequest.setFastestInterval(1000);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
+        }
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {}
+
+    public boolean checkPermission(){
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return false;
+        }
+        return true;
+    }
 
     public void CloseApplication(){
         this.finish();
@@ -104,6 +162,7 @@ public class StartActivity extends AppCompatActivity {
             registerBody.setStatus(mStatus);
             registerBody.setEmail(mEmail);
             try {
+
                 responseBody = UserService.UpdateUser(registerBody);
             } catch (Exception e) {
                 return false;
