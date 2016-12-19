@@ -50,11 +50,11 @@
                 android:layout_weight="0.99" />
 
             <ImageView
-                android:id="@+id/imageView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.99"
-                app:srcCompat="@drawable/logo" />
+                app:srcCompat="@drawable/login_logo"
+                android:id="@+id/imageView2"
+                android:layout_weight="0.99" />
 
             <LinearLayout
                 android:id="@+id/loginfield"

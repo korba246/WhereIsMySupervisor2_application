@@ -1,21 +1,29 @@
 package com.example.korba.gdziejestmojpromotor2.service;
 
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.net.wifi.ScanResult;
 import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 
+import com.example.korba.gdziejestmojpromotor2.endpoints.RoutersEndpoints;
+import com.example.korba.gdziejestmojpromotor2.model.Router;
+
+import java.io.IOException;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by korba on 16.12.16.
  */
 
 public class RouterService {
+
+    public static String URL = "http://192.168.1.2:8080/";
 
     public String getRouterBSSID(Context myContext) {
 
@@ -62,5 +70,22 @@ public class RouterService {
             }
             return true;
         }else return false;
+    }
+
+    public static Router GetUser(String email) {
+        Router router = new Router();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        RoutersEndpoints endpoint = retrofit.create(RoutersEndpoints.class);
+        try {
+            Call<Router> call = endpoint.GetRouter(email);
+            router = call.execute().body();
+            return router;
+        } catch (IOException e) {
+            router.setBuilding("Error");
+            return router;
+        }
     }
 }
