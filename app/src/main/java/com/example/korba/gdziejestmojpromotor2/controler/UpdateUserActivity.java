@@ -42,8 +42,6 @@ public class UpdateUserActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_user);
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(myToolbar);
         getSupportActionBar().setIcon(R.drawable.user_set);
         UpdateView = findViewById(R.id.update);
         ProgressView = findViewById(R.id.update_progress);

@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.korba.gdziejestmojpromotor2.R;
 import com.example.korba.gdziejestmojpromotor2.model.RegisterBody;
 import com.example.korba.gdziejestmojpromotor2.model.ResponseBody;
+import com.example.korba.gdziejestmojpromotor2.model.Router;
 import com.example.korba.gdziejestmojpromotor2.service.DatabaseHandler;
 import com.example.korba.gdziejestmojpromotor2.service.RouterService;
 import com.example.korba.gdziejestmojpromotor2.service.UserService;
@@ -26,15 +27,13 @@ public class StartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(myToolbar);
         getSupportActionBar().setIcon(R.drawable.home);
 
         ImageButton Help = (ImageButton) findViewById(R.id.help);
         Help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(StartActivity.this,MapsActivity.class);
+                Intent intent = new Intent(StartActivity.this,HelpActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -66,16 +65,16 @@ public class StartActivity extends AppCompatActivity {
             }
         });
 
-        System.out.println(routerService.getRouterBSSID(getApplicationContext()));
-        routerService.Reconnect(getApplicationContext());
-            String ans = routerService.getRouterBSSID(getApplicationContext());
-            if(ans.equals("NoConnection")){
-                Toast.makeText(StartActivity.this, "Jeśle możesz połącz się z siecią PWR-WiFi", Toast.LENGTH_LONG).show();
-            }else if(ans.equals("WiFiDisabled")){
-                Toast.makeText(StartActivity.this, "Aby aplikacja działała poprawnie włącz WiFi", Toast.LENGTH_LONG).show();
-            }else{
-
+        ImageButton StartTracking = (ImageButton) findViewById(R.id.StartTracking);
+        StartTracking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(StartActivity.this,TrackActivity.class);
+                startActivity(intent);
+                finish();
             }
+        });
+
         }
     /*
     @Override
@@ -110,7 +109,6 @@ public class StartActivity extends AppCompatActivity {
             mStatus = status;
             mEmail = email;
             mType = type;
-
         }
 
         @Override
@@ -151,5 +149,6 @@ public class StartActivity extends AppCompatActivity {
             task = null;
         }
     }
+
 }
 

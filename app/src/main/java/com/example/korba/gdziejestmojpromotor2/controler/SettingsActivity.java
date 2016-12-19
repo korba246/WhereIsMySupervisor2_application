@@ -32,8 +32,6 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(myToolbar);
         getSupportActionBar().setIcon(R.drawable.settings_icon);
         Button ChangePassword = (Button) findViewById(R.id.password);
         ChangePassword.setOnClickListener(new View.OnClickListener() {

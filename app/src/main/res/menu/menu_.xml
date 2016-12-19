@@ -1,0 +1,36 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.korba.gdziejestmojpromotor.Instructors">
+    <item
+        android:id="@+id/action_home"
+        android:icon="@drawable/home"
+        android:orderInCategory="100"
+        android:title="Home"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@drawable/settings_icon"
+        android:orderInCategory="100"
+        android:title="Ustawienia"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_logout"
+        android:orderInCategory="100"
+        android:title="Wyloguj"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_close"
+        android:icon="@drawable/shoutdown"
+        android:orderInCategory="100"
+        android:title="Zamknij"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_help"
+        android:icon="@android:drawable/ic_menu_help"
+        android:orderInCategory="100"
+        android:title="Pomoc"
+        app:showAsAction="ifRoom" />
+
+</menu>

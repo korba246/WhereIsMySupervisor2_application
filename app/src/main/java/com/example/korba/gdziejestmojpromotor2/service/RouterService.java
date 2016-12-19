@@ -72,7 +72,7 @@ public class RouterService {
         }else return false;
     }
 
-    public static Router GetUser(String email) {
+    public static Router GetRouter(String addres) {
         Router router = new Router();
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(URL)
@@ -80,7 +80,7 @@ public class RouterService {
                 .build();
         RoutersEndpoints endpoint = retrofit.create(RoutersEndpoints.class);
         try {
-            Call<Router> call = endpoint.GetRouter(email);
+            Call<Router> call = endpoint.GetRouter(addres);
             router = call.execute().body();
             return router;
         } catch (IOException e) {

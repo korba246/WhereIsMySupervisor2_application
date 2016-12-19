@@ -8,17 +8,7 @@
     android:background="@drawable/silverbackground"
     android:gravity="center"
     android:orientation="vertical"
-    android:theme="@style/AppTheme.NoActionBar">
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorAccent"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@android:style/Widget.Holo.Light.PopupWindow" />
-
+    android:theme="@style/AppTheme">
 
     <ProgressBar
         android:id="@+id/login_progress"

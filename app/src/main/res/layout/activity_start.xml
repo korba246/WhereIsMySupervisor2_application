@@ -8,14 +8,10 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorAccent"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@android:style/Widget.Holo.Light.PopupWindow" />
+        android:id="@+id/textView4" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,8 +22,8 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="326dp"
-            app:srcCompat="@drawable/logo" />
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/login_logo" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -50,6 +46,19 @@
                 android:layout_weight="1"
                 app:srcCompat="@drawable/logout"/>
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/StartTrackingL">
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/close"
+                android:id="@+id/StartTracking" />
         </LinearLayout>
 
         <LinearLayout

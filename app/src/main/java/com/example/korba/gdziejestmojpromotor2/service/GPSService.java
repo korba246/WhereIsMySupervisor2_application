@@ -5,7 +5,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Criteria;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
@@ -26,42 +28,57 @@ import java.util.List;
  * Created by korba on 16.12.16.
  */
 
-public class GPSService implements LocationListener {
+public class GPSService {
+/*
+    LocationManager lm;
+    Criteria kr;
+    Location loc;
+    String najlepszyDostawca;
 
-private LatLng latLng;
+    private void odswiez(Context context){
+        najlepszyDostawca=lm.getBestProvider(kr, true);
+        if (ContextCompat.checkSelfPermission(context,
+                android.Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            loc = lm.getLastKnownLocation(najlepszyDostawca);
+        }
+    }
 
-    public GPSService(Context context ){
+    public GPSService(Context context) {
+
+        kr=new Criteria();
+        lm=(LocationManager) getSystemService(LOCATION_SERVICE);
+        odswiez(context);
+        lm.requestLocationUpdates(najlepszyDostawca, 1000, 1, this);
+
     }
 
     @Override
     public void onLocationChanged(Location location) {
-        latLng = new LatLng(location.getLatitude(), location.getLongitude());
-        }
+        odswiez();
+        t1.setText("najlepszy dostawca: "+najlepszyDostawca);
+        t2.setText("długość geograficzna: "+loc.getLongitude());
+        t3.setText("szerokość geograficzna: "+loc.getLatitude());
+        t4.setText(t4.getText()+""+loc.getLongitude()+"/"+loc.getLatitude()+"\n");
 
-    public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
-    public boolean checkLocationPermission(Context context, Activity activity){
-        if (ContextCompat.checkSelfPermission(context,
-                Manifest.permission.ACCESS_FINE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
-
-            if (ActivityCompat.shouldShowRequestPermissionRationale(activity,
-                    Manifest.permission.ACCESS_FINE_LOCATION)) {
-
-                ActivityCompat.requestPermissions(activity,
-                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                        MY_PERMISSIONS_REQUEST_LOCATION);
-
-
-            } else {
-                ActivityCompat.requestPermissions(activity,
-                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                        MY_PERMISSIONS_REQUEST_LOCATION);
-            }
-            return false;
-        } else {
-            return true;
-        }
     }
 
+    @Override
+    public void onProviderDisabled(String provider) {
+        // TODO Auto-generated method stub
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+        // TODO Auto-generated method stub
+
+    }*/
 
 }
+

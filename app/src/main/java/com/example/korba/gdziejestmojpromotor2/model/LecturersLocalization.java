@@ -9,6 +9,9 @@ public class LecturersLocalization {
     private int id;
     private String name;
     private String surname;
+    private String email;
+    private String building;
+    private String floor;
     private String x;
     private String y;
     private String time;
@@ -17,10 +20,13 @@ public class LecturersLocalization {
     public LecturersLocalization(){
 
     }
-    public LecturersLocalization(int id, String name, String surname, String x, String y, String time, String date){
+    public LecturersLocalization(int id, String name, String surname, String email, String building, String floor, String x, String y, String time, String date){
         this.id = id;
         this.name = name;
         this.surname = surname;
+        this.email = email;
+        this.building = building;
+        this.floor = floor;
         this.x = x;
         this.y = y;
         this.time = time;
@@ -29,9 +35,12 @@ public class LecturersLocalization {
     }
 
 
-    public LecturersLocalization(String name, String surname, String x, String y, String time, String date){
+    public LecturersLocalization(String name, String surname, String email, String building, String floor, String x, String y, String time, String date){
         this.name = name;
         this.surname = surname;
+        this.email = email;
+        this.building = building;
+        this.floor = floor;
         this.x = x;
         this.y = y;
         this.time = time;
@@ -61,6 +70,30 @@ public class LecturersLocalization {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getBuilding() {
+        return building;
+    }
+
+    public void setBuilding(String building) {
+        this.building = building;
+    }
+
+    public String getFloor() {
+        return floor;
+    }
+
+    public void setFloor(String floor) {
+        this.floor = floor;
     }
 
     public String getX() {
