@@ -82,6 +82,42 @@ public class TrackActivity extends AppCompatActivity implements LocationListener
             }
         }else Toast.makeText(getApplicationContext(), "W celu poprawnego działania aplikacji uruchom Lokalizacje GPS", Toast.LENGTH_LONG).show();
 
+        ImageButton Help = (ImageButton) findViewById(R.id.help);
+        Help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TrackActivity.this,HelpActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        ImageButton Settings = (ImageButton) findViewById(R.id.settings);
+        Settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TrackActivity.this,SettingsActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        ImageButton Logout = (ImageButton) findViewById(R.id.logout);
+        Logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LogoutUser(0);
+            }
+        });
+
+        ImageButton Close = (ImageButton) findViewById(R.id.close);
+        Close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LogoutUser(1);
+            }
+        });
+
         ImageButton StopTracking = (ImageButton) findViewById(R.id.StopTracking);
         StopTracking.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,47 +128,6 @@ public class TrackActivity extends AppCompatActivity implements LocationListener
                 finish();
             }
         });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent;
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                intent = new Intent(TrackActivity.this, SettingsActivity.class);
-                startActivity(intent);
-                finish();
-                return true;
-
-            case R.id.action_logout:
-                LogoutUser(0);
-                return true;
-
-            case R.id.action_close:
-                LogoutUser(1);
-                return true;
-
-            case R.id.action_help:
-                return true;
-
-            case R.id.action_home:
-                intent = new Intent(TrackActivity.this, StartActivity.class);
-                startActivity(intent);
-                finish();
-                return true;
-
-
-            default:
-                return super.onOptionsItemSelected(item);
-
-        }
     }
 
     public void stopGPS()

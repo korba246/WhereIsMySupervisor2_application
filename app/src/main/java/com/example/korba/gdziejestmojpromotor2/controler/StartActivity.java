@@ -5,14 +5,12 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 import com.example.korba.gdziejestmojpromotor2.R;
 import com.example.korba.gdziejestmojpromotor2.model.RegisterBody;
 import com.example.korba.gdziejestmojpromotor2.model.ResponseBody;
-import com.example.korba.gdziejestmojpromotor2.model.Router;
 import com.example.korba.gdziejestmojpromotor2.service.DatabaseHandler;
 import com.example.korba.gdziejestmojpromotor2.service.RouterService;
 import com.example.korba.gdziejestmojpromotor2.service.UserService;
@@ -28,6 +26,7 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         getSupportActionBar().setIcon(R.drawable.home);
+        getSupportActionBar().setTitle("Strona Domowa");
 
         ImageButton Help = (ImageButton) findViewById(R.id.help);
         Help.setOnClickListener(new View.OnClickListener() {
