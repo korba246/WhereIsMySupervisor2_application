@@ -12,8 +12,8 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/login_logo"
-        android:label="@string/app_name"
+        android:icon="@drawable/app2logo"
+        android:label="GJMP - Wykładowca"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         >
@@ -32,10 +32,14 @@
             android:label="Nowy Użytkownik"
             android:screenOrientation="portrait" />
         <activity android:name=".controler.StartActivity" />
-        <activity android:name=".controler.SettingsActivity" />
-        <activity android:name=".controler.Change_PasswordActivity" />
-        <activity android:name=".controler.DeleteAccountActivity" />
-        <activity android:name=".controler.UpdateUserActivity" />
+        <activity android:name=".controler.SettingsActivity"
+            android:label="Ustawienia"/>
+        <activity android:name=".controler.Change_PasswordActivity"
+            android:label="Zmień Hasło"/>
+        <activity android:name=".controler.DeleteAccountActivity"
+            android:label="Usuń Konto"/>
+        <activity android:name=".controler.UpdateUserActivity"
+            android:label="Zmień Swoje Dane"/>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />

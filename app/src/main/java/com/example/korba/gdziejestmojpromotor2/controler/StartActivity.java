@@ -82,6 +82,8 @@ public class StartActivity extends AppCompatActivity {
         LogoutUser(1);
     }*/
 
+    @Override
+    public void onBackPressed() {}
 
     public void CloseApplication(){
         this.finish();

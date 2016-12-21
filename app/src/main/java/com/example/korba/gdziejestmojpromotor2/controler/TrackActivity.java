@@ -48,6 +48,8 @@ public class TrackActivity extends AppCompatActivity implements LocationListener
     private UpdateUserTask task3 = null;
     private DatabaseHandler db = new DatabaseHandler(this);
     private RouterService routerService = new RouterService();
+    private double Long = 17.0601;
+    private double Lat = 51.1082;
 
     private boolean refresh(){
         bestProvider=lm.getBestProvider(criteria, true);
@@ -164,11 +166,17 @@ public class TrackActivity extends AppCompatActivity implements LocationListener
     @Override
     public void onLocationChanged(Location location) {
         if(refresh()) {
-            y = String.valueOf(location.getLongitude());
-            x = String.valueOf(location.getLatitude());
+             Long = location.getLongitude();
+             Lat = location.getLatitude();
+            y = String.valueOf(Long);
+            x = String.valueOf(Lat);
         }else Toast.makeText(getApplicationContext(), "W celu poprawnego działania aplikacji uruchom Lokalizacje GPS", Toast.LENGTH_LONG).show();
-        Toast.makeText(getApplicationContext(), x+"  "+ y, Toast.LENGTH_LONG).show();
-        GetRouter();
+        if(Lat > 51.1110 || Lat < 51.1063 || Long > 17.0669 || Long < 17.0539){
+            Toast.makeText(getApplicationContext(), "Jesteś poza terenem PWR, Twoja lokalizacja nie jest udostępniana", Toast.LENGTH_LONG).show();
+        }else {
+            GetRouter();
+            Toast.makeText(getApplicationContext(), "Wysłano Twoją lokalizacje ", Toast.LENGTH_LONG).show();
+        }
     }
 
 
