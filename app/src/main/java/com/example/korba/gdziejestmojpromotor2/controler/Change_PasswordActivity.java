@@ -115,7 +115,8 @@ public class Change_PasswordActivity extends AppCompatActivity {
     }
 
     private View isOldpasslValid(String Pass, View focusView) {
-        if(!Pass.equals(db.getUser(1).get_password())) {
+        String pas = String.valueOf(Pass.hashCode());
+        if(!pas.equals(db.getUser(1).get_password())) {
             OldPassword.setError("Stare hasło nieprawidłowe");
             focusView = OldPassword;
         }

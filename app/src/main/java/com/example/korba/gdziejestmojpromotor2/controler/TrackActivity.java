@@ -86,6 +86,7 @@ public class TrackActivity extends AppCompatActivity implements LocationListener
         Help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                stopGPS();
                 Intent intent = new Intent(TrackActivity.this,HelpActivity.class);
                 startActivity(intent);
                 finish();
@@ -96,6 +97,7 @@ public class TrackActivity extends AppCompatActivity implements LocationListener
         Settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                stopGPS();
                 Intent intent = new Intent(TrackActivity.this,SettingsActivity.class);
                 startActivity(intent);
                 finish();
@@ -106,7 +108,9 @@ public class TrackActivity extends AppCompatActivity implements LocationListener
         Logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                stopGPS();
                 LogoutUser(0);
+                //finish();
             }
         });
 
@@ -114,7 +118,9 @@ public class TrackActivity extends AppCompatActivity implements LocationListener
         Close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                stopGPS();
                 LogoutUser(1);
+                //finish();
             }
         });
 
@@ -150,7 +156,7 @@ public class TrackActivity extends AppCompatActivity implements LocationListener
 
     @Override
     public void onBackPressed() {
-
+        stopGPS();
         Intent intent = new Intent(TrackActivity.this,StartActivity.class);
         startActivity(intent);
     }

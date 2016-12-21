@@ -19,9 +19,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "UsersManager";
-
+    private static final String TABLE_LECTURERS = "lecturers";
     private static final String TABLE_USERS = "users";
     private static final String KEY_ID = "id";
+    private static final String KEY_NAME = "name";
+    private static final String KEY_SURNAME = "surname";
+    private static final String KEY_BUILDING = "building";
+    private static final String KEY_FLOOR = "floor";
     private static final String KEY_EMAIL = "email";
     private static final String KEY_PASSWORD = "password";
 
@@ -32,14 +36,19 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // Creating Tables
     @Override
     public void onCreate(SQLiteDatabase db) {
+        String CREATE_LECTURERS_TABLE = "CREATE TABLE " + TABLE_LECTURERS + "("
+                + KEY_ID + " INTEGER PRIMARY KEY," + KEY_EMAIL + " STRING SECONDARY KEY" +  ")";
 
         String CREATE_USERS_TABLE = "CREATE TABLE " + TABLE_USERS + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_EMAIL + " TEXT,"
                 + KEY_PASSWORD +  " TEXT"+ ")";
+
+        db.execSQL(CREATE_LECTURERS_TABLE);
         db.execSQL(CREATE_USERS_TABLE);
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_LECTURERS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
         onCreate(db);
     }
