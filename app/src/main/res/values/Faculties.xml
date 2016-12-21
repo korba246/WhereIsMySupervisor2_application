@@ -2,7 +2,7 @@
 <resources>
     <string-array name="Faculties">
         <item>Wydział</item>
-        <item>Wydział Architektóry</item>
+        <item>Wydział Architektury</item>
         <item>Wydział Budownictwa</item>
         <item>Wydział Chemiczny</item>
         <item>Wydział Elektroniki</item>

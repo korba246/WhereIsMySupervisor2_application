@@ -78,9 +78,16 @@ public class TrackActivity extends AppCompatActivity implements LocationListener
                     android.Manifest.permission.ACCESS_FINE_LOCATION)
                     == PackageManager.PERMISSION_GRANTED) {
                 lm.requestLocationUpdates(bestProvider, time, min, this);
-                y = String.valueOf(location.getLongitude());
-                x = String.valueOf(location.getLatitude());
-                GetRouter();
+                Long = location.getLongitude();
+                Lat = location.getLatitude();
+                y = String.valueOf(Long);
+                x = String.valueOf(Lat);
+                if(Lat > 51.1110 || Lat < 51.1063 || Long > 17.0669 || Long < 17.0539){
+                    Toast.makeText(getApplicationContext(), "Jesteś poza terenem PWR, Twoja lokalizacja nie jest udostępniana", Toast.LENGTH_LONG).show();
+                }else {
+                    GetRouter();
+                    Toast.makeText(getApplicationContext(), "Wysłano Twoją lokalizacje ", Toast.LENGTH_LONG).show();
+                }
             }
         }else Toast.makeText(getApplicationContext(), "W celu poprawnego działania aplikacji uruchom Lokalizacje GPS", Toast.LENGTH_LONG).show();
 
