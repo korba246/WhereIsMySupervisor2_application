@@ -197,10 +197,12 @@ public class LoginActivity extends AppCompatActivity {
                 if (responseBody == null) {
                     Toast.makeText(getApplicationContext(), "Brak połączenia z serwerem", Toast.LENGTH_LONG).show();
                 }else if (responseBody.getStatus().equals("Logged")) {
-                    if(db.getUser(1).get_email().equals(mEmail)){
-                        Intent intent = new Intent(LoginActivity.this, StartActivity.class);
-                        startActivity(intent);
-                        finish();
+                    if(db.getUsersCount()>0){
+                         if(db.getUser(1).get_email().equals(mEmail)) {
+                            Intent intent = new Intent(LoginActivity.this, StartActivity.class);
+                            startActivity(intent);
+                            finish();
+                    }
                     }else
                     Toast.makeText(getApplicationContext(), "Użytkownik zalogowany na innym urządzeniu", Toast.LENGTH_LONG).show();
                 } else if (responseBody.getStatus().equals("NotFound")) {
