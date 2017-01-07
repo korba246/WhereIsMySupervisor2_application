@@ -10,9 +10,6 @@ import android.os.AsyncTask;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -33,8 +30,8 @@ import java.util.Date;
 
 public class TrackActivity extends AppCompatActivity implements LocationListener {
 
-    private long time = 10000;
-    private float min =5;
+    private long time = 60000;
+    private float min =100;
     private LocationManager lm;
     private Criteria criteria;
     private Location location;
@@ -84,23 +81,14 @@ public class TrackActivity extends AppCompatActivity implements LocationListener
                 x = String.valueOf(Lat);
                 if(Lat > 51.1110 || Lat < 51.1063 || Long > 17.0669 || Long < 17.0539){
                     Toast.makeText(getApplicationContext(), "Jesteś poza terenem PWR, Twoja lokalizacja nie jest udostępniana", Toast.LENGTH_LONG).show();
+                    x = "-";
+                    y = "-";
                 }else {
-                    GetRouter();
                     Toast.makeText(getApplicationContext(), "Wysłano Twoją lokalizacje ", Toast.LENGTH_LONG).show();
                 }
+                GetRouter();
             }
         }else Toast.makeText(getApplicationContext(), "W celu poprawnego działania aplikacji uruchom Lokalizacje GPS", Toast.LENGTH_LONG).show();
-
-        ImageButton Help = (ImageButton) findViewById(R.id.help);
-        Help.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                stopGPS();
-                Intent intent = new Intent(TrackActivity.this,HelpActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
         ImageButton Settings = (ImageButton) findViewById(R.id.settings);
         Settings.setOnClickListener(new View.OnClickListener() {
@@ -194,14 +182,10 @@ public class TrackActivity extends AppCompatActivity implements LocationListener
 
     @Override
     public void onProviderEnabled(String provider) {
-        // TODO Auto-generated method stub
-
     }
 
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {
-        // TODO Auto-generated method stub
-
     }
 
     public void UpdateLocalization(){

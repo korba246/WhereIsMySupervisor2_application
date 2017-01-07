@@ -6,7 +6,6 @@ package com.example.korba.gdziejestmojpromotor2.model;
 
 public class Users {
 
-    //private variables
     int _id;
     String _email;
     String _password;

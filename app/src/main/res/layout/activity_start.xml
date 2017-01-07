@@ -30,22 +30,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/close"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/close"/>
-
-            <ImageButton
-                android:id="@+id/logout"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/logout"/>
-
         </LinearLayout>
 
         <LinearLayout
@@ -68,6 +52,22 @@
             android:orientation="horizontal">
 
             <ImageButton
+                android:id="@+id/logout"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/logout"/>
+
+            <ImageButton
+                android:id="@+id/close"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/close"/>
+
+            <ImageButton
                 android:id="@+id/settings"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
@@ -75,13 +75,6 @@
                 android:layout_weight="1"
                 app:srcCompat="@drawable/settings"/>
 
-            <ImageButton
-                android:id="@+id/help"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/help"/>
         </LinearLayout>
 
     </LinearLayout>

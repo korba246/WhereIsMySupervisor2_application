@@ -23,7 +23,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RouterService {
 
-    public static String URL = "http://192.168.1.2:8080/";
+    //public static String URL = "http://172.16.23.149:8080/";
+    public static String URL = "http://192.168.1.3:8080/";
 
     public String getRouterBSSID(Context myContext) {
 
@@ -47,12 +48,9 @@ public class RouterService {
         String bssid;
         WifiManager wifiManager = (WifiManager) myContext.getSystemService(Context.WIFI_SERVICE);
         if(wifiManager.isWifiEnabled()) {
-            // Level of current connection
             int rssi = wifiManager.getConnectionInfo().getRssi();
             String bssi = wifiManager.getConnectionInfo().getSSID();
             int mlevel = WifiManager.calculateSignalLevel(rssi, 10);
-
-            // Level of a Scan Result
             List<ScanResult> wifiList = wifiManager.getScanResults();
             for (ScanResult scanResult : wifiList) {
                 int level = WifiManager.calculateSignalLevel(scanResult.level, 10);

@@ -84,9 +84,6 @@ public class SettingsActivity extends AppCompatActivity {
                 LogoutUser(1);
                 return true;
 
-            case R.id.action_help:
-                return true;
-
             case R.id.action_home:
                 intent = new Intent(SettingsActivity.this, StartActivity.class);
                 startActivity(intent);

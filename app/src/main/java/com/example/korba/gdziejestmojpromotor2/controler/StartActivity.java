@@ -28,15 +28,6 @@ public class StartActivity extends AppCompatActivity {
         getSupportActionBar().setIcon(R.drawable.home);
         getSupportActionBar().setTitle("Strona Domowa");
 
-        ImageButton Help = (ImageButton) findViewById(R.id.help);
-        Help.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(StartActivity.this,HelpActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
         ImageButton Settings = (ImageButton) findViewById(R.id.settings);
         Settings.setOnClickListener(new View.OnClickListener() {
@@ -75,12 +66,6 @@ public class StartActivity extends AppCompatActivity {
         });
 
         }
-    /*
-    @Override
-    public void onStop(){
-        super.onStop();
-        LogoutUser(1);
-    }*/
 
     @Override
     public void onBackPressed() {}

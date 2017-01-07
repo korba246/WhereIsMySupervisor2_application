@@ -8,11 +8,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -100,25 +96,6 @@ public class RegisterActivity extends AppCompatActivity {
         ProgressView = findViewById(R.id.Register_progress);
         RegcomplitView = findViewById(R.id.Regcomplit);
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_help, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent;
-        switch (item.getItemId()) {
-            case R.id.action_help:
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-
-        }
-    }
 
     @Override
     public void onBackPressed() { Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
@@ -128,7 +105,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void CheckData() {
 
-        // Reset errors.
         Name.setError(null);
         Surname.setError(null);
         Email.setError(null);
@@ -204,9 +180,6 @@ public class RegisterActivity extends AppCompatActivity {
         return focusView;
     }
 
-    /**
-     * Shows the progress UI and hides the login form.
-     */
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     private void showView(final View toShow, final boolean show) {
 

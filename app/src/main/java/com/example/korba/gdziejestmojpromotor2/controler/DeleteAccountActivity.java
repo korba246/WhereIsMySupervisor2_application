@@ -5,10 +5,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -52,32 +48,11 @@ public class DeleteAccountActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_help, menu);
-        return true;
-    }
-
-    @Override
     public void onBackPressed() {
 
         Intent intent = new Intent(DeleteAccountActivity.this,SettingsActivity.class);
         startActivity(intent);
         finish();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent;
-        switch (item.getItemId()) {
-            case R.id.action_help:
-                finish();
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-
-        }
     }
 
     private void DeleteUser() {

@@ -8,11 +8,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,11 +19,8 @@ import com.example.korba.gdziejestmojpromotor2.model.LoginBody;
 import com.example.korba.gdziejestmojpromotor2.model.ResponseBody;
 import com.example.korba.gdziejestmojpromotor2.model.Users;
 import com.example.korba.gdziejestmojpromotor2.service.DatabaseHandler;
-import com.example.korba.gdziejestmojpromotor2.service.LocalizationService;
 import com.example.korba.gdziejestmojpromotor2.service.UserService;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -73,29 +66,6 @@ public class LoginActivity extends AppCompatActivity {
 
         LoginView = findViewById(R.id.loginfield);
         ProgressView = findViewById(R.id.login_progress);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_help, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent;
-        switch (item.getItemId()) {
-            case R.id.action_help:
-                intent = new Intent(LoginActivity.this,HelpActivity.class);
-                startActivity(intent);
-                finish();
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-
-        }
     }
 
     @Override
@@ -227,6 +197,11 @@ public class LoginActivity extends AppCompatActivity {
                 if (responseBody == null) {
                     Toast.makeText(getApplicationContext(), "Brak połączenia z serwerem", Toast.LENGTH_LONG).show();
                 }else if (responseBody.getStatus().equals("Logged")) {
+                    if(db.getUser(1).get_email().equals(mEmail)){
+                        Intent intent = new Intent(LoginActivity.this, StartActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }else
                     Toast.makeText(getApplicationContext(), "Użytkownik zalogowany na innym urządzeniu", Toast.LENGTH_LONG).show();
                 } else if (responseBody.getStatus().equals("NotFound")) {
                     Toast.makeText(getApplicationContext(), "Nieprawidłowy adres email", Toast.LENGTH_LONG).show();
