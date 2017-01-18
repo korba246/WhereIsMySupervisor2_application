@@ -121,7 +121,7 @@ public class UpdateUserActivity extends AppCompatActivity {
         String surname = Surname.getText().toString();
         String email = db.getUser(1).get_email() ;
         String faculty = Faculty.getSelectedItem().toString();
-        String degree = Degree.getSelectedItem().toString();
+        String degree = "-";
         String fos = FieldOfStudy.getSelectedItem().toString();
 
         task = new UpdateUserTask(name,surname,email,faculty,degree,fos);

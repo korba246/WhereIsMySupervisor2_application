@@ -20,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class UserService {
 
     //public static String URL = "http://172.16.23.149:8080/";
-    public static String URL = "http://192.168.1.3:8080/";
+    public static String URL = "http://192.168.1.2:8080/";
 
     public static ResponseBody Login(LoginBody loginBody) {
         ResponseBody responseBody = new ResponseBody();

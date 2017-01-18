@@ -30,8 +30,8 @@ import java.util.Date;
 
 public class TrackActivity extends AppCompatActivity implements LocationListener {
 
-    private long time = 60000;
-    private float min =5;
+    private long time = 6000;
+    private float min =0;
     private LocationManager lm;
     private Criteria criteria;
     private Location location;
@@ -80,7 +80,6 @@ public class TrackActivity extends AppCompatActivity implements LocationListener
                 y = String.valueOf(Long);
                 x = String.valueOf(Lat);
                 if(Lat > 51.1110 || Lat < 51.1063 || Long > 17.0669 || Long < 17.0539){
-                    Toast.makeText(getApplicationContext(), "Jesteś poza terenem PWR, Twoja lokalizacja nie jest udostępniana", Toast.LENGTH_LONG).show();
                     x = "-";
                     y = "-";
                 }
@@ -105,7 +104,6 @@ public class TrackActivity extends AppCompatActivity implements LocationListener
             public void onClick(View view) {
                 stopGPS();
                 LogoutUser(0);
-                //finish();
             }
         });
 
@@ -115,7 +113,6 @@ public class TrackActivity extends AppCompatActivity implements LocationListener
             public void onClick(View view) {
                 stopGPS();
                 LogoutUser(1);
-                //finish();
             }
         });
 
@@ -164,11 +161,11 @@ public class TrackActivity extends AppCompatActivity implements LocationListener
             y = String.valueOf(Long);
             x = String.valueOf(Lat);
         }else Toast.makeText(getApplicationContext(), "W celu poprawnego działania aplikacji uruchom Lokalizacje GPS", Toast.LENGTH_LONG).show();
-        Toast.makeText(getApplicationContext(), "Wysłano Twoją lokalizacje2 ", Toast.LENGTH_LONG).show();
         if(Lat > 51.1110 || Lat < 51.1063 || Long > 17.0669 || Long < 17.0539){
             x = "-";
             y = "-";
-            Toast.makeText(getApplicationContext(), "Jesteś poza terenem PWR, Twoja lokalizacja nie jest udostępniana", Toast.LENGTH_LONG).show();
+            building = "-";
+            floor = "-";
         }
         GetRouter();
     }
